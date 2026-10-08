@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="page-title">{{ title }}</h1>
+
+    <div class="form-box">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Product Name</label>
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">SKU</label>
+                    {{ form.sku }}
+                    {{ form.sku.errors }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Category</label>
+                    {{ form.category }}
+                    {{ form.category.errors }}
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Price</label>
+                    {{ form.price }}
+                    {{ form.price.errors }}
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Stock Quantity</label>
+                    {{ form.stock }}
+                    {{ form.stock.errors }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Product Image</label>
+                    {{ form.image }}
+                    {{ form.image.errors }}
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Status</label>
+                    {{ form.status }}
+                    {{ form.status.errors }}
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label class="form-label">Description</label>
+                    {{ form.description }}
+                    {{ form.description.errors }}
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Product</button>
+            <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancel</a>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

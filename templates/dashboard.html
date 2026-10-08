@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="page-title">Dashboard</h1>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="dashboard-card total-card">
+                <h2>{{ total_products }}</h2>
+                <p>Total Products</p>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="dashboard-card active-card">
+                <h2>{{ active_products }}</h2>
+                <p>Active Products</p>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="dashboard-card inactive-card">
+                <h2>{{ inactive_products }}</h2>
+                <p>Inactive Products</p>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="dashboard-card stock-card">
+                <h2>{{ low_stock_products }}</h2>
+                <p>Low Stock Products</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
